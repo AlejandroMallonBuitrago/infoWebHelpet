@@ -118,7 +118,7 @@ section#counter-stats {
 
 .stats {
   text-align: center;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
 }
@@ -128,13 +128,116 @@ section#counter-stats {
   font-size: 60px;
 }
 
-
-
-    
-
-
 /*/ end count stats /*/
-                </style>
+
+
+/* //////////////////////////////CENTRAR SIN RESPONSIVE :( ///////////////////////////// */
+    .row{
+  display: flex;
+  justify-content: center;
+}
+
+
+/* /////////////////////////////////CUENTA ATRÁS////////////////////////////////// */
+
+
+.counter2 {
+	    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: -50px;
+}
+.days-title, .hours-title, .seconds-title, .minutes-title {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: normal;
+    margin: 0 15px;
+    text-align: center;
+}
+.days, .hours, .minutes {
+    font-size: 75px;
+    font-family: "soleil", sans-serif;
+    font-weight: bold;
+    margin: 0 15px;
+    text-align: center;
+    margin-top: 18px;
+}
+.seconds {
+    font-size: 75px;
+    font-family: "soleil", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.simple-text{
+  position: fixed;
+  bottom: 1px;
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+}
+@media only screen and (max-width: 920px) {
+    .days, .hours, .minutes, .seconds {
+        font-size: 70px;
+        margin: 0 10px;
+        margin-top: 20px;
+    }
+
+    .days-title, .hours-title, .seconds-title, .minutes-title {
+        font-size: 20px;
+        margin: 0 10px;
+    }
+
+
+    .simple-text{
+      font-size: 15px;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .days, .hours, .minutes,.seconds {
+        font-size: 40px;
+        margin: 0 10px;
+    }
+  
+    .days-title, .hours-title, .seconds-title, .minutes-title {
+        font-size: 15px;
+        margin: 0 10px;
+    }
+
+
+    .simple-text{
+      font-size: 14px;
+    }
+}
+
+/* Iphone 4, potrait etc.--> */
+
+@media only screen and (max-width: 400px) {
+    .days, .hours, .minutes, .seconds {
+        font-size: 30px;
+        margin: 0 5px;
+    }
+
+    .days-title, .hours-title, .seconds-title, .minutes-title {
+        font-size: 15px;
+        margin: 0 5px;
+    }
+
+    .simple-text{
+      font-size: 10px;
+    }
+}
+
+
+
+
+   </style>
 	</head>
 	<body class="landing">
             
@@ -186,6 +289,13 @@ $consulta_adoptado = $mysqli->query("SELECT COUNT(*) as contador FROM mascota WH
 $num_adoptado = $consulta_adoptado->num_rows;
 $ado = $consulta_adoptado->fetch_array();
 
+////////////////////
+
+$total = array();
+$consulta_total = $mysqli->query("SELECT COUNT(*) as contador FROM mascota");
+$num_total = $consulta_total->num_rows;
+$t = $consulta_total->fetch_array();
+
 
 ?>
    
@@ -228,45 +338,32 @@ $ado = $consulta_adoptado->fetch_array();
                                             <li><a href="#" class="button special" style="margin-left: 7.5em; margin-top: 50px;">Registrarte</a></li>
 						<li><a href="#" class="button" style="margin-top: 50px;">Entrar</a></li>
 					</ul>
+
+
+				    <div class="counter2">
+				        	<div class="days-title">días
+				            <div class="days"></div>
+				        </div>
+				        <div class="hours-title">horas
+				            <div class="hours"></div>
+				        </div>
+				        <div class="minutes-title">minutos
+				            <div class="minutes"></div>
+				        </div>
+				        <div class="seconds-title">segundos
+				            <div class="seconds"></div>
+				        </div>
+				    </div>
+
+				    <div class="simple-text">Quedán para el lanzamiento! :) Página en construcción BETA</div>
+
+
+					
 				</section>
 
 <!-- start count stats -->
 
-<section id="counter-stats" class="wow fadeInRight" data-wow-duration="1.4s">
-	<div class="container">
-            <div class="row">
 
-			<div class="col-md-3 stats">
-				<i class="fa fa-code" aria-hidden="true"></i>
-				<div class="counting" data-count="9"><?php echo $p['contador'];?></div>
-				<h5>Lines of code</h5>
-			</div>
-
-			<div class="col-md-3 stats">
-				<i class="fa fa-check" aria-hidden="true"></i>
-				<div class="counting" data-count="280">0</div>
-				<h5>Projects done</h5>
-			</div>
-
-			<div class="col-md-3 stats">
-				<i class="fa fa-user" aria-hidden="true"></i>
-				<div class="counting" data-count="75">0</div>
-				<h5>Happy clients</h5>
-			</div>
-
-			<div class="col-md-3 stats">
-				<i class="fa fa-coffee" aria-hidden="true"></i>
-				<div class="counting" data-count="999">0</div>
-				<h5>Cups of coffee</h5>
-			</div>
-
-
-		</div>
-		<!-- end row -->
-	</div>
-	<!-- end container -->
-
-</section>
 
 <!-- end cont stats -->
 
@@ -278,18 +375,64 @@ $ado = $consulta_adoptado->fetch_array();
 <!--							<h2>Introducing the ultimate mobile app
 							<br />
 							for doing stuff with your phone</h2>-->
-<div class="contadores"><div class="counter" style="float: left;" data-count="<?php echo $p['contador'];?>">440</div><div style="clear: both;">Perdidos</div></div>
-<div class="contadores"><div class="counter" style="float: left;" data-count="<?php echo $e['contador'];?>">440</div>Encontrados</div>
-<div class="contadores"><div class="counter" style="float: left;" data-count="<?php echo $r['contador'];?>">440</div>Recuperados</div>
-<div class="contadores"><div class="counter" style="float: left;" data-count="<?php echo $adn['contador'];?>">440</div>En adopción</div>
-<div class="contadores"><div class="counter" style="float: left;" data-count="<?php echo $ado['contador'];?>">440</div>Adoptados</div>
+<!-- <div class="contadores"><div class="counter" style="float: left;" data-count="<?php //echo $p['contador'];?>">440</div><div style="clear: both;">Perdidos</div></div>
+<div class="contadores"><div class="counter" style="float: left;" data-count="<?php //echo $e['contador'];?>">440</div>Encontrados</div>
+<div class="contadores"><div class="counter" style="float: left;" data-count="<?php //echo $r['contador'];?>">440</div>Recuperados</div>
+<div class="contadores"><div class="counter" style="float: left;" data-count="<?php //echo $adn['contador'];?>">440</div>En adopción</div>
+<div class="contadores"><div class="counter" style="float: left;" data-count="<?php //echo $ado['contador'];?>">440</div>Adoptados</div> -->
 							
+<section id="counter-stats" class="wow fadeInRight" data-wow-duration="1.4s">
+	<div class="container" text-align="center">
+            <div class="row">
+
+			<div class="col-md-2 stats">
+				<i class="contadores" aria-hidden="true"><img src="images/png/008-bulldog.png" style="margin-bottom: 12px;" /></i>
+				<div class="counter" data-count="<?php echo $p['contador'];?>">0</div>
+				<h5>Perdidos</h5>
+			</div>
+
+			<div class="col-md-2 stats">
+				<i class="contadores" aria-hidden="true"><img src="images/png/005-cat-1.png" style="margin-bottom: 12px;" /></i>
+				<div class="counter" data-count="<?php echo $e['contador'];?>">0</div>
+				<h5>Encontrados</h5>
+			</div>
+
+			<div class="col-md-2 stats">
+				<i class="contadores" aria-hidden="true"><img src="images/png/004-dog.png" style="margin-bottom: 12px;" /></i>
+				<div class="counter" data-count="<?php echo $r['contador'];?>">0</div>
+				<h5>Recuperados</h5>
+			</div>
+
+			<div class="col-md-2 stats">
+				<i class="contadores" aria-hidden="true"><img src="images/png/006-cat.png" style="margin-bottom: 12px;" /></i>
+				<div class="counter" data-count="<?php echo $adn['contador'];?>">0</div>
+				<h5>En adopción</h5>
+			</div>
+
+			<div class="col-md-2 stats">
+				<i class="contadores" aria-hidden="true"><img src="images/png/007-kennel.png" style="margin-bottom: 12px;" /></i>
+				<div class="counter" data-count="<?php echo $ado['contador'];?>">0</div>
+				<h5>Adoptados</h5>
+			</div>
+
+			<div class="col-md-2 stats">
+				<i class="contadores" aria-hidden="true"><img src="images/png/familia.png" style="margin-bottom: 12px;" /></i>
+				<div class="counter" data-count="<?php echo $t['contador'];?>">0</div>
+				<h5>Felices</h5>
+			</div>
+
+
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container -->
+
+</section>
 
 
 
-
-<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc ornare<br />
-							adipiscing nunc adipiscing. Condimentum turpis massa.</p>
+<p><i>"Un país, una civilización se puede juzgar por la forma en que trata a sus animales."</i><br />
+							<b>Mahatma Gandhi (1869-1948)</b></p>
 						</header>
 						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
 					</section>
@@ -452,14 +595,8 @@ function consoleText(words, id, colors) {
 $('.counter').each(function() {
   var $this = $(this),
       countTo = $this.attr('data-count');
-      
-             var cont = $('#cpntainer');
-                var cont_offset = container.offset();
-                
-
-                $(window).on('scroll', function () {
-                    if ($(window).scrollTop() > menu_offset.top) {
-                      
+     
+    
                         $({ countNum: $this.text()}).animate({
                             countNum: countTo
                           },
@@ -478,11 +615,8 @@ $('.counter').each(function() {
 
                           });  
                         
-                    } else {
-                      
-                        
-                    }
-                });    
+                    
+               
       
   
 
@@ -514,7 +648,38 @@ $('.counter').each(function() {
                     }
                 });     
             });
-                        </script>
+
+
+
+    // //////////////////////////////CUENTA ATRÁS//////////////////////////////////
+
+
+
+    //Set countdown goal here   
+   var goalDay = '2017/11/29 00:00:00'
+
+   var timerId = 0;
+   timerId = setInterval(function() {
+     var t = Date.parse(goalDay) - Date.parse(new Date());
+     if (t < 0) {
+       $(".days").text("0");
+       $(".hours").text("0");
+       $(".minutes").text("0");
+       $(".seconds").text("0");
+       clearInterval(timerId);
+     } else {
+       var seconds = Math.floor((t / 1000) % 60);
+       var minutes = Math.floor((t / 1000 / 60) % 60);
+       var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+       var days = Math.floor(t / (1000 * 60 * 60 * 24));
+       $(".days").text(days);
+       $(".hours").text(hours);
+       $(".minutes").text(minutes);
+       $(".seconds").text(seconds);
+     }
+   }, 1000); // repeat forever, polling every second
+
+     </script>
 
 	</body>
 </html>
