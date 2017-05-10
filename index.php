@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
                 <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+
+                <link rel="stylesheet" href="css/swiper.min.css">
                         
                 <style>
                     @import url(https://fonts.googleapis.com/css?family=Khula:700);
@@ -235,6 +237,45 @@ section#counter-stats {
 }
 
 
+/* /////////////////////////////CONTADORES////////////////////////////////// */
+
+@media only screen and (max-width: 920px) {
+
+.contadores2, .contadores2 .counter {
+	
+}
+
+
+.contadores2 h5{
+	font-size: 0.5em;
+}
+
+}
+
+/* /////////////////////////////LOVE////////////////////////////////// */
+
+.footer-love {
+  position:absolute;
+  right: 1.5rem;
+  bottom: 2.5rem;
+  font-size: 0.85rem;
+  font-family: 'Lato', sans-serif;
+  z-index:9999;
+}
+  .love-heart {
+    background:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/42764/heart-smil.svg);
+    width:16px;
+    height:16px;
+    display:inline-block;
+    margin:0 5px 0 0; 
+    vertical-align:middle;
+  }
+ .footer-love a {color:#43abf0;}
+}
+
+
+
+
 
 
    </style>
@@ -341,21 +382,21 @@ $t = $consulta_total->fetch_array();
 
 
 				    <div class="counter2">
-				        	<div class="days-title">días
+				       	<div class="days-title" style="color: #4285F4">días
 				            <div class="days"></div>
 				        </div>
-				        <div class="hours-title">horas
+				        <div class="hours-title" style="color: #EA4335">horas
 				            <div class="hours"></div>
 				        </div>
-				        <div class="minutes-title">minutos
+				        <div class="minutes-title" style="color: #FBBC05">minutos
 				            <div class="minutes"></div>
 				        </div>
-				        <div class="seconds-title">segundos
+				        <div class="seconds-title" style="color: #34A853">segundos
 				            <div class="seconds"></div>
 				        </div>
 				    </div>
 
-				    <div class="simple-text">Quedán para el lanzamiento! :) Página en construcción BETA</div>
+				    <div class="simple-text">...quedan para el lanzamiento! Página en construcción BETA :)</div>
 
 
 					
@@ -381,9 +422,11 @@ $t = $consulta_total->fetch_array();
 <div class="contadores"><div class="counter" style="float: left;" data-count="<?php //echo $adn['contador'];?>">440</div>En adopción</div>
 <div class="contadores"><div class="counter" style="float: left;" data-count="<?php //echo $ado['contador'];?>">440</div>Adoptados</div> -->
 							
-<section id="counter-stats" class="wow fadeInRight" data-wow-duration="1.4s">
-	<div class="container" text-align="center">
-            <div class="row">
+<section id="counter-stats" class="wow fadeInRight contadores2" style="cursor: w-resize;">
+	<div class="container swiper-container" text-align="center">
+            <div class="row swiper-wrapper">
+
+          
 
 			<div class="col-md-2 stats">
 				<i class="contadores" aria-hidden="true"><img src="images/png/008-bulldog.png" style="margin-bottom: 12px;" /></i>
@@ -406,7 +449,7 @@ $t = $consulta_total->fetch_array();
 			<div class="col-md-2 stats">
 				<i class="contadores" aria-hidden="true"><img src="images/png/006-cat.png" style="margin-bottom: 12px;" /></i>
 				<div class="counter" data-count="<?php echo $adn['contador'];?>">0</div>
-				<h5>En adopción</h5>
+				<h5>Adopción</h5>
 			</div>
 
 			<div class="col-md-2 stats">
@@ -418,8 +461,10 @@ $t = $consulta_total->fetch_array();
 			<div class="col-md-2 stats">
 				<i class="contadores" aria-hidden="true"><img src="images/png/familia.png" style="margin-bottom: 12px;" /></i>
 				<div class="counter" data-count="<?php echo $t['contador'];?>">0</div>
-				<h5>Felices</h5>
+				<h5>Familias:)</h5>
 			</div>
+
+	
 
 
 		</div>
@@ -430,11 +475,20 @@ $t = $consulta_total->fetch_array();
 </section>
 
 
+<!-- ---------------------------INICIO LOVE---------------------------- -->
+	
+
+
+    
+
+<!-- ---------------------------FIN LOVE---------------------------- -->
+
+
 
 <p><i>"Un país, una civilización se puede juzgar por la forma en que trata a sus animales."</i><br />
 							<b>Mahatma Gandhi (1869-1948)</b></p>
 						</header>
-						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+						<span class="image featured"><img src="images/sloganImg.png" alt="" /></span>
 					</section>
 
 					<section class="box special features">
@@ -496,8 +550,8 @@ $t = $consulta_total->fetch_array();
 			<!-- CTA -->
 				<section id="cta">
 
-					<h2>Sign up for beta access</h2>
-					<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p>
+					<h2>Subscribete a nuestra newsletter</h2>
+					<p>Para así enterarte de todo lo que ocurra en nuestra aplicación, con el fin de ayudarnos entre todos :)</p>
 
 					<form>
 						<div class="row uniform 50%">
@@ -515,15 +569,17 @@ $t = $consulta_total->fetch_array();
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+						<li><a href="https://twitter.com/helpetspain" class="icon fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label" target="_blank">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/helpetspain/" class="icon fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/AlejandroMallonBuitrago" class="icon fa-github" target="_blank"><span class="label">Github</span></a></li>
+						<li><a href="https://dribbble.com/AlejandroMallon" class="icon fa-dribbble" target="_blank"><span class="label">Dribbble</span></a></li>
+						<li><a href="https://plus.google.com/u/0/116654182385691955189" class="icon fa-google-plus" target="_blank"><span class="label">Google+</span></a></li>
 					</ul>
 					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Helpet. All rights reserved.</li><li><div class="footer--love">
+  <p>With <span class="love-heart"></span>by <a href="https://twitter.com/alejandromallon" target="_blank">@AlejandroMallon</a></p>
+</div></li>
 					</ul>
 				</footer>
 
@@ -537,6 +593,9 @@ $t = $consulta_total->fetch_array();
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+
+			<script src="js/swiper.jquery.min.js"></script>
+			<script src="js/swiper.min.js"></script>
 
 
                         <script>
@@ -592,6 +651,10 @@ function consoleText(words, id, colors) {
   }, 400);
 };
 
+
+
+
+
 $('.counter').each(function() {
   var $this = $(this),
       countTo = $this.attr('data-count');
@@ -614,12 +677,7 @@ $('.counter').each(function() {
                             }
 
                           });  
-                        
-                    
-               
-      
-  
-
+                       
   
   
 
@@ -633,17 +691,12 @@ $('.counter').each(function() {
                 
 
                 $(window).on('scroll', function () {
-                    if ($(window).scrollTop() > menu_offset.top) {
-                        menu.addClass('navbar-fixed-top');
-                        menu.addClass('transparencia');
-                        menu.addClass('menu2');
-                        mostrar.removeClass('ocultar');
+                    if ($(window).scrollTop() > menu_offset.top()) {
+                      
                         
                     } else {
-                        menu.removeClass('navbar-fixed-top');
-                        menu.removeClass('transparencia');
-                        menu.removeClass('menu2');
-                        mostrar.addClass('ocultar');
+                        
+                        return;
                         
                     }
                 });     
@@ -656,7 +709,7 @@ $('.counter').each(function() {
 
 
     //Set countdown goal here   
-   var goalDay = '2017/11/29 00:00:00'
+   var goalDay = '2017/06/14 20:00:00'
 
    var timerId = 0;
    timerId = setInterval(function() {
@@ -678,6 +731,19 @@ $('.counter').each(function() {
        $(".seconds").text(seconds);
      }
    }, 1000); // repeat forever, polling every second
+
+
+   // ///////////////////////////////// SWIPER ////////////////////////////////////
+
+   var swiper = new Swiper('.swiper-container', {
+        
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 20,
+        speed: 120000000,
+        loop: false
+    });
+
 
      </script>
 
