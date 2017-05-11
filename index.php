@@ -274,6 +274,41 @@ section#counter-stats {
 }
 
 
+/* //////////////////////////MOUSE////////////////////////// */
+
+.aniWrap2 {
+  margin: 40px auto;
+  width: 28px;
+  display: block;
+}
+
+.mouse2 {
+	margin-top: 20px;
+	margin-left: 48%;
+  width: 28px;
+  height: 50px;
+  border: 2px solid #777777;
+  border-radius: 14px;
+  -webkit-animation: mouse 1.3s ease-out infinite ; /* Chrome, Safari, Opera */
+}
+
+.scroller2 {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: #777777;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+
+@-webkit-keyframes mouse {
+    0%   {transform: rotate(-7deg);}
+    25%   {transform: rotate(7deg);}
+    65% {transform: rotate(-7deg);}
+  	95% {transform: rotate(7deg);}
+}
 
 
 
@@ -333,7 +368,7 @@ $ado = $consulta_adoptado->fetch_array();
 ////////////////////
 
 $total = array();
-$consulta_total = $mysqli->query("SELECT COUNT(*) as contador FROM mascota");
+$consulta_total = $mysqli->query("SELECT COUNT(*) as contador FROM usuario");
 $num_total = $consulta_total->num_rows;
 $t = $consulta_total->fetch_array();
 
@@ -461,7 +496,7 @@ $t = $consulta_total->fetch_array();
 			<div class="col-md-2 stats">
 				<i class="contadores" aria-hidden="true"><img src="images/png/familia.png" style="margin-bottom: 12px;" /></i>
 				<div class="counter" data-count="<?php echo $t['contador'];?>">0</div>
-				<h5>Familias:)</h5>
+				<h5>Familias</h5>
 			</div>
 
 	
@@ -475,20 +510,23 @@ $t = $consulta_total->fetch_array();
 </section>
 
 
-<!-- ---------------------------INICIO LOVE---------------------------- -->
+<!-- ---------------------------INICIO MOUSE---------------------------- -->
 	
+<div class="aniWrap2">
+  	<div class="mouse2">
+    	<div class="scroller2">
+    	</div>
+  	</div>
+</div>
 
-
-    
-
-<!-- ---------------------------FIN LOVE---------------------------- -->
+<!-- ---------------------------FIN MOUSE---------------------------- -->
 
 
 
 <p><i>"Un país, una civilización se puede juzgar por la forma en que trata a sus animales."</i><br />
 							<b>Mahatma Gandhi (1869-1948)</b></p>
 						</header>
-						<span class="image featured"><img src="images/sloganImg.png" alt="" /></span>
+						<span class="image featured"><img src="images/sloganImg.png" alt=""/></span>
 					</section>
 
 					<section class="box special features">
